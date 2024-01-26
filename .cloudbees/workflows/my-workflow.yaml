@@ -29,3 +29,7 @@ jobs:
           registry: index.docker.io
           username: ${{ secrets.crodriguezlopez_DOCKER_USERNAME }}
           password: ${{ secrets.crodriguezlopez__DOCKER_PASSWORD }}
+      - uses: cloudbees-io/kaniko@v1
+        name: Push image to OCI registry
+        with:
+            destination: index.docker.io/${{ secrets.crodriguezlopez_DOCKER_USERNAME }}/my-sample-go-app:1.0.0
